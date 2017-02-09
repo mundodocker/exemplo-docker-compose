@@ -1,5 +1,5 @@
 # exemplo-docker-compose
-Repositório de exemplo para o workshop na QI
+Repositório de exemplo
 
 Para utilização:
 
