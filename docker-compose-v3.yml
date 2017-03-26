@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+
+  mysql:
+    image: mysql
+    networks:
+      - interna
+    environment:
+      - MYSQL_ROOT_PASSWORD=senha
+      - MYSQL_DATABASE=wordpress
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 80:80
+    networks:
+      - interna
+    depends_on:
+      - mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      - WORDPRESS_DB_HOST=mysql:3306 
+      - WORDPRESS_DB_PASSWORD=senha 
+      - WORDPRESS_DB_USER=root
+
+networks:
+    interna:
