@@ -16,7 +16,7 @@ def hello():
     statsd.increment('docker_compose_example.page.views')
 
     redis.incr('hits')
-    return 'Ola QI! Este Site foi acessado %s vezes.' % redis.get('hits')
+    return 'Ola! Este Site foi acessado %s vezes.' % redis.get('hits')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
